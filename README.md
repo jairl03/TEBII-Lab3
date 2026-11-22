@@ -77,12 +77,6 @@ Esquemático completo en [`Esquematico Etapa A y B.pdf`](Esquematico%20Etapa%20A
 ![Esquemático Etapa B](figuras/fig10_esquematico_etapa_B.jpg)
 *Figura 4. Esquemático de la Etapa B (EasyEDA).*
 
-![Montaje Etapa B](figuras/fig11_montaje_etapa_B.jpg)
-*Figura 5. Montaje armado de la Etapa B en el protoboard.*
-
-![Montaje con osciloscopio y fuente](figuras/fig12_montaje_osciloscopio_fuente.jpg)
-*Figura 6. Montaje de la Etapa B con osciloscopio y fuente.*
-
 ---
 
 ## 5. Procedimiento para replicar la experiencia
@@ -125,7 +119,6 @@ Reproduce las desviaciones, la ganancia, el ajuste lineal y la calibración en d
 | Rf1 (10 kΩ) | Amplificador | 9.82 kΩ |
 | Rf2 (10 kΩ) | Amplificador | 9.98 kΩ |
 
-Fotos en [`figuras/`](figuras/) (`fig05a` a `fig05e`).
 
 ### Etapa A — Celda simulada (V₀ = 3.28 V)
 
@@ -145,17 +138,6 @@ Fotos en [`figuras/`](figuras/) (`fig05a` a `fig05e`).
 - Relación del divisor con valores medidos: k = 213.8 / (9960 + 213.8) = **0.02101** (diseño: 0.01768). El cociente TP1/V1 coincide con k con diferencias menores a 1.6 %, así que **el error proviene del divisor (R2), no del ESP32**.
 - En f0, V1 = 0.136 V (el DAC no llega a 0 V) → 0.136 × 0.02101 = 2.9 mV ≈ **3 mV** medidos en TP1.
 
-| | |
-| --- | --- |
-| ![V1 f0](figuras/fig06a_V1_f0.jpg) | ![V1 f21](figuras/fig06b_V1_f21.jpg) |
-| ![V1 f100](figuras/fig06c_V1_f100.jpg) | ![V0](figuras/fig08_V0.jpg) |
-| ![TP1 f0](figuras/fig07a_TP1_f0.jpg) | ![TP1 f21](figuras/fig07b_TP1_f21.jpg) |
-| ![TP1 f50](figuras/fig07c_TP1_f50.jpg) | ![TP1 f100](figuras/fig07d_TP1_f100.jpg) |
-
-*Figura 7. Mediciones de V1 (f0, f21, f100), V₀ y TP1 (f0, f21, f50, f100).*
-
-![Monitor serial](figuras/fig09_monitor_serial.jpg)
-*Figura 8. Monitor Serie del ESP32.*
 
 ### Etapa B — Amplificador
 
@@ -184,19 +166,6 @@ Fotos en [`figuras/`](figuras/) (`fig05a` a `fig05e`).
 ![Ajuste lineal](figuras/fig20_ajuste_lineal.jpg)
 *Figura 9. TP2 en función de TP1 con los cuatro niveles y recta de ajuste.*
 
-| | |
-| --- | --- |
-| ![+VCC](figuras/fig13a_VCC_pos.jpg) | ![-VCC](figuras/fig13b_VCC_neg.jpg) |
-| ![Offset](figuras/fig13c_offset.jpg) | ![TP2 f0](figuras/fig14b_TP2_f0.jpg) |
-| ![TP2 f21](figuras/fig15b_TP2_f21.jpg) | ![TP2 f50](figuras/fig16b_TP2_f50.jpg) |
-| ![TP2 f100](figuras/fig17b_TP2_f100.jpg) | |
-
-*Figura 10. +VCC, −VCC, offset y TP2 en f0, f21, f50 y f100.*
-
-### Osciloscopio (TP2 con f50)
-
-![Captura del osciloscopio](figuras/fig19_captura_osciloscopio.jpg)
-*Figura 11. TP2 con f50: línea horizontal estable de ≈ 578 mV (multímetro: 0.576 V), sin oscilaciones.*
 
 ### Calibración en dos puntos
 
@@ -207,16 +176,6 @@ Fotos en [`figuras/`](figuras/) (`fig05a` a `fig05e`).
 
 Sensibilidad real = (1.137 − 0.257)/(100 − 21) = **11.14 mV/%**; cero real = **0.0231 V**.
 El oxígeno puro fija la parte alta de la escala (corrige la ganancia, afectada por R2); el aire fija la parte baja (corrige el offset del DAC y del amplificador).
-
----
-
-## 7. Conclusiones
-
-- TP1 entregó 3, 14, 29 y 55 mV; f21, f50 y f100 quedaron fuera de los rangos de la guía.
-- El error de TP1 proviene del **divisor** (R2 = 213.8 Ω en lugar de 180 Ω) y no del ESP32: TP1/V1 coincide con k = 0.02101.
-- El DAC no llega a 0 V en su código mínimo (V1 = 0.136 V en f0), por lo que TP1 fue 3 mV y no 0 mV.
-- El amplificador funcionó correctamente: ganancia real 21.46 (0.63 % de la de diseño), lineal (R² = 0.99997), offset de entrada −1.63 mV (dentro del rango del TL084: típico 3 mV, máximo 15 mV) y salida estable en el osciloscopio.
-- Sin calibrar, el monitor marcaría 25.7 % en aire y 113.7 % en oxígeno puro; la calibración en dos puntos es necesaria.
 
 ---
 
@@ -240,8 +199,6 @@ El oxígeno puro fija la parte alta de la escala (corrige la ganancia, afectada 
 
 ## 9. Integrantes
 
-| N.° | Apellidos y nombres | Código |
-| --- | --- | --- |
-| 1 | Sotomayor Villanueva, Genny Solangch | 23190393 |
-| 2 | Lázaro Canales, Jair Renato | 23190377 |
-| 3 | Arroyo Ramos, Rosbeth Nayelhy | 23190114 |
+Sotomayor Villanueva, Genny Solangch       23190393 
+Lázaro Canales, Jair Renato                23190377 
+Arroyo Ramos, Rosbeth Nayelhy              23190114 
