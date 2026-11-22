@@ -59,9 +59,6 @@ Esquemático completo en [`Esquematico Etapa A y B.pdf`](Esquematico%20Etapa%20A
 ![Esquemático Etapa A](figuras/fig03_esquematico_etapa_A.jpg)
 *Figura 2. Esquemático de la Etapa A (EasyEDA).*
 
-![Montaje Etapa A](figuras/fig04_montaje_etapa_A.jpg)
-*Figura 3. Montaje armado de la Etapa A.*
-
 ### Etapa B — Amplificador (TL084N)
 
 | Elemento | Conexión |
